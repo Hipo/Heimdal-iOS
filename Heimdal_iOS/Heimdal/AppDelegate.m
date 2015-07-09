@@ -30,9 +30,9 @@
     _locationManager.delegate = self;
 
     _beaconRegion = [[CLBeaconRegion  alloc] initWithProximityUUID: kUUID identifier:kIdentifier];
-    _beaconRegion.notifyEntryStateOnDisplay = YES;
-    _beaconRegion.notifyOnEntry = YES;
-    _beaconRegion.notifyOnExit = YES;
+    //_beaconRegion.notifyEntryStateOnDisplay = YES;
+    //_beaconRegion.notifyOnEntry = YES;
+    //_beaconRegion.notifyOnExit = YES;
     
     
     

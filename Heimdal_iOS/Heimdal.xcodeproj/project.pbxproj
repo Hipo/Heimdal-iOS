@@ -225,7 +225,6 @@
 					};
 					E3BE24181B1888EC00EAAFEA = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = EE65Z2TELX;
 					};
 				};
 			};
@@ -447,7 +446,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Heimdal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.eralpkaraduman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Heimdal;
@@ -464,7 +463,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Heimdal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.eralpkaraduman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Heimdal;
