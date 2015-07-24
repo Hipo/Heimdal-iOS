@@ -30,12 +30,10 @@
     _locationManager.delegate = self;
 
     _beaconRegion = [[CLBeaconRegion  alloc] initWithProximityUUID: kUUID identifier:kIdentifier];
-    //_beaconRegion.notifyEntryStateOnDisplay = YES;
-    //_beaconRegion.notifyOnEntry = YES;
-    //_beaconRegion.notifyOnExit = YES;
-    
-    
-    
+//    _beaconRegion.notifyEntryStateOnDisplay = NO;
+//    _beaconRegion.notifyOnEntry = YES;
+//    _beaconRegion.notifyOnExit = YES;
+
     [_locationManager startRangingBeaconsInRegion:_beaconRegion];
     [_locationManager startMonitoringForRegion:_beaconRegion];
     [_locationManager requestAlwaysAuthorization];
@@ -64,35 +62,24 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-//#pragma mark - CLLocationManager Delegate Methods
-//-(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
-//    NSLog(@"State: %ld", (long)state);
-//    NSLog(@"Identifier: %@ ", region.identifier);
-//}
-//
-//-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-//    //Adding a custom local notification to be presented
-//    NSLog(@"You've entered the region %@", region);
-//    
-//    UILocalNotification *notification = [[UILocalNotification alloc]init];
-//    notification.alertBody = [NSString stringWithFormat:@"Entered region is:  %@", region];
-//    notification.soundName = @"Default.mp3";
-//    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-//    
-//}
-//
-//-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-//    //Adding a custom local notification to be presented
-//    NSLog(@"You've exited the region %@", region);
-//    
-//    UILocalNotification *notification = [[UILocalNotification alloc]init];
-//    notification.alertBody = [NSString stringWithFormat:@"Exited region is:  %@", region];
-//    notification.soundName = @"Default.mp3";
-//    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-//}
-//
-//-(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
-//    //Identify clsest beacon
+#pragma mark - CLLocationManager Delegate Methods
+-(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+    //NSLog(@"State: %ld", (long)state);
+    //NSLog(@"Identifier: %@ ", region.identifier);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    ////Adding a custom local notification to be presented
+    //NSLog(@"You've entered the region %@", region);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    ////Adding a custom local notification to be presented
+    //NSLog(@"You've exited the region %@", region);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
+////  Identify closest beacon
 //    if (beacons.count > 0) {
 //        CLBeacon *firstBeacon = [beacons firstObject];
 //        switch (firstBeacon.proximity) {
@@ -119,18 +106,30 @@
 //            }
 //        }
 //    }
-//}
-//
-//-(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
-//    NSLog(@"Monitoring is started with region: %@", region);
-//}
-//
-//-(void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
-//    NSLog(@"Region Did Fail: Manager:%@ Region:%@ Error:%@",manager, region, error);
-//}
-//
-//-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-//    NSLog(@"Status:%d", status);
-//}
+}
 
+
+-(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+    //NSLog(@"Monitoring is started with region: %@", region);
+}
+
+-(void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
+    //NSLog(@"Region Did Fail: Manager:%@ Region:%@ Error:%@",manager, region, error);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    switch (status) {
+        case kCLAuthorizationStatusAuthorizedAlways:
+            break;
+        case kCLAuthorizationStatusNotDetermined:
+            [_locationManager requestAlwaysAuthorization];
+            break;
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+        case kCLAuthorizationStatusDenied:
+        case kCLAuthorizationStatusRestricted:
+            break;
+        default:
+            break;
+    }
+}
 @end

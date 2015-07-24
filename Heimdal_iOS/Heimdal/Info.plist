@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>The Apllication is asily accessable from your lock screen when you’re near an Hipo Office</string>
+	<string>The Apllication is easily accessable from your lock screen when you’re near an Hipo Office</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
