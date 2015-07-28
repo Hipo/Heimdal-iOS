@@ -13,9 +13,11 @@
 static NSString *ble_device_name = @"BLE Mini";
 
 @interface ConnectViewController () <BLEDelegate>
+
 @property (nonatomic, strong) BLE *bleController;
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UIButton *overlayConnectButton;
+
 @end
 
 @implementation ConnectViewController
@@ -24,24 +26,21 @@ static NSString *ble_device_name = @"BLE Mini";
     [super viewDidLoad];
 
     _bleController = [[BLE alloc] init];
-    
     [_bleController controlSetup];
 }
 
--(void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
     
     [_bleController setDelegate:self];
     
-    if([_bleController isConnected]){
+    if([_bleController isConnected]) {
         
         CBPeripheral *peripheral = [_bleController activePeripheral];
         
         if(peripheral){
             [_bleController.CM cancelPeripheralConnection:peripheral];
         }
-        
     }
     
     [_connectButton setEnabled:YES];
@@ -73,49 +72,40 @@ static NSString *ble_device_name = @"BLE Mini";
                     break;
                 }
             }
-            
         }
         
-        if(!found){
-            [[[UIAlertView alloc] initWithTitle:@"not found or someone else is connected (is your bluetooth on?)" message:nil delegate:nil cancelButtonTitle:@"OK :'(" otherButtonTitles:nil] show];
-            
+        if(!found) {
+            [[[UIAlertView alloc] initWithTitle:@"Device not found or someone else is connected (is your bluetooth on?)"
+                                        message:nil
+                                       delegate:nil
+                              cancelButtonTitle:@"OK :'("
+                              otherButtonTitles:nil] show];
             
             [_connectButton setEnabled:YES];
             [_overlayConnectButton setEnabled:_connectButton.enabled];
-            
-            
         }
-        
     });
     
 }
 
--(void)bleDidConnect{
-    
+- (void)bleDidConnect {
     [self performSegueWithIdentifier:@"connected" sender:self];
 }
 
--(void)bleDidDisconnect{
+- (void)bleDidDisconnect {
     [_connectButton setEnabled:YES];
     [_overlayConnectButton setEnabled:_connectButton.enabled];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"connected"]){
         ConnectedViewController *connectedVC = (ConnectedViewController*)segue.destinationViewController;
         connectedVC.bleController = _bleController;
     }
 }
 
--(void)bleDidReceiveData:(unsigned char *)data length:(int)length{
-    
-    NSLog(@"msg received");
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)bleDidReceiveData:(unsigned char *)data length:(int)length {
+    NSLog(@"Message received.");
 }
 
 @end

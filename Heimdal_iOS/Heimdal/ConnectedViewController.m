@@ -10,6 +10,7 @@
 
 
 @interface ConnectedViewController () <BLEDelegate>
+
 @property (strong,nonatomic) IBOutlet UIButton *openButton;
 @end
 
@@ -18,8 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -32,7 +31,6 @@
     [super viewDidAppear:animated];
     
     _bleController.delegate = self;
-    
     [self changeButtonColorThanLoop:YES];
 }
 
@@ -49,7 +47,7 @@
     [self disconnect];
 }
 
--(UIColor*)randomColor{
+- (UIColor*)randomColor {
     CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
     CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
     CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
@@ -57,12 +55,14 @@
     return color;
 }
 
-- (void)changeButtonColorThanLoop:(BOOL)loop{
+- (void)changeButtonColorThanLoop:(BOOL)loop {
     
     [_openButton setTitleColor:[self randomColor] forState:UIControlStateNormal];
     [self.view setBackgroundColor:[self randomColor]];
     
-    if(!loop)return;
+    if(!loop) {
+        return;
+    }
     
     float t = 0.1f;
     
@@ -89,25 +89,13 @@
     
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    
-}
-
 -(void)disconnect{
-    NSLog(@"disconnecting..");
+    NSLog(@"Disconnecting..");
     CBPeripheral *connectedPeripheral = [_bleController activePeripheral];
-    if(connectedPeripheral){
+    if(connectedPeripheral != nil){
         [_bleController.CM cancelPeripheralConnection:[_bleController activePeripheral]];
+        NSLog(@"Disconnected");
     }
-    NSLog(@"disconnected");
-}
-
--(void)bleDidDisconnect{
-    
-}
-
--(void)bleDidConnect{
-    
 }
 
 -(NSData*)dataForHex:(UInt8)hex{

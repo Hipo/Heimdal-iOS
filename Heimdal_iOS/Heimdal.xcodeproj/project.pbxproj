@@ -98,9 +98,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		773DDBDA1B67A32D00223C34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E3CB651A1B18D00400E5B451 /* LaunchScreen.xib */,
+				E3CB65201B18D00400E5B451 /* Images.xcassets */,
+				E332A9531B20BAB3006821BF /* Heimdal.jpg */,
+				E31AB9841B679F5A0025E073 /* anahtarci.jpg */,
+				E31AB9821B6793830025E073 /* kapi.jpg */,
+				E3CB65211B18D00400E5B451 /* Info.plist */,
+				E3CB65221B18D00400E5B451 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		77AE27291B4149020059C66F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3AC85C31B18934600E961A0 /* CoreBluetooth.framework */,
+				E3AC85BE1B1892A700E961A0 /* BLE */,
 				77AE272A1B4149020059C66F /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -139,8 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				E3CB65171B18D00400E5B451 /* Heimdal */,
-				E3AC85C31B18934600E961A0 /* CoreBluetooth.framework */,
-				E3AC85BE1B1892A700E961A0 /* BLE */,
 				77AE272C1B4149020059C66F /* Heimdal Widget */,
 				77AE27291B4149020059C66F /* Frameworks */,
 				E3BE241A1B1888EC00EAAFEA /* Products */,
@@ -161,18 +175,12 @@
 			children = (
 				E3CB65181B18D00400E5B451 /* AppDelegate.h */,
 				E3CB65191B18D00400E5B451 /* AppDelegate.m */,
-				E3CB651A1B18D00400E5B451 /* LaunchScreen.xib */,
 				E3CB651C1B18D00400E5B451 /* Main.storyboard */,
-				E3CB651E1B18D00400E5B451 /* ConnectedViewController.h */,
-				E3CB651F1B18D00400E5B451 /* ConnectedViewController.m */,
 				E3CB65231B18D00400E5B451 /* ConnectViewController.h */,
 				E3CB65241B18D00400E5B451 /* ConnectViewController.m */,
-				E3CB65201B18D00400E5B451 /* Images.xcassets */,
-				E332A9531B20BAB3006821BF /* Heimdal.jpg */,
-				E31AB9841B679F5A0025E073 /* anahtarci.jpg */,
-				E31AB9821B6793830025E073 /* kapi.jpg */,
-				E3CB65211B18D00400E5B451 /* Info.plist */,
-				E3CB65221B18D00400E5B451 /* main.m */,
+				E3CB651E1B18D00400E5B451 /* ConnectedViewController.h */,
+				E3CB651F1B18D00400E5B451 /* ConnectedViewController.m */,
+				773DDBDA1B67A32D00223C34 /* Supporting Files */,
 			);
 			path = Heimdal;
 			sourceTree = "<group>";
@@ -227,11 +235,10 @@
 				TargetAttributes = {
 					77AE27271B4149020059C66F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = W9875NV3WF;
+						DevelopmentTeam = 6NH7XJ2CAT;
 					};
 					E3BE24181B1888EC00EAAFEA = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = W9875NV3WF;
 					};
 				};
 			};

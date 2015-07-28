@@ -10,5 +10,7 @@
 #import "BLE.h"
 
 @interface ConnectedViewController : UIViewController
+
 @property (nonatomic, strong) BLE *bleController;
+
 @end
