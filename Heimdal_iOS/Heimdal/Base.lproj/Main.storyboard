@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--KAPI_AC.EXE-->
+        <!--Heimdal-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ConnectViewController" sceneMemberID="viewController">
@@ -16,68 +16,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kapi.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1NF-7P-HJ7">
-                                <rect key="frame" x="168" y="168" width="264" height="264"/>
-                                <color key="tintColor" red="0.84313725490196079" green="0.0" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heimdal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-hS-G6I">
+                                <rect key="frame" x="177" y="72" width="246" height="374"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="264" id="6Y9-tj-Li1"/>
-                                    <constraint firstAttribute="height" constant="264" id="Wcn-Ey-2z6"/>
+                                    <constraint firstAttribute="height" constant="374" id="mAw-7H-zKo"/>
+                                    <constraint firstAttribute="width" constant="246" id="oF2-xH-4lY"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wj-Bc-zfl">
-                                <rect key="frame" x="250" y="432" width="100" height="60"/>
+                                <rect key="frame" x="249" y="454" width="102" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="ikn-fl-zIk"/>
-                                    <constraint firstAttribute="height" constant="60" id="tec-tS-zwx"/>
+                                    <constraint firstAttribute="height" constant="30" id="TAn-zq-MyO"/>
+                                    <constraint firstAttribute="width" constant="102" id="t71-dh-V2U"/>
                                 </constraints>
-                                <state key="normal" title="Connect">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="Connecting.."/>
                                 <connections>
                                     <action selector="onTappedConnectButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4MZ-74-Rnn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC3-K2-VNe" userLabel="img_button">
-                                <rect key="frame" x="168" y="168" width="264" height="264"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="7"/>
-                                <state key="normal" title="bağla">
-                                    <color key="titleColor" red="0.84313725490000002" green="0.0" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTappedConnectButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5vI-do-P8h"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="1NF-7P-HJ7" secondAttribute="centerY" id="24S-Tn-5UG"/>
-                            <constraint firstItem="kC3-K2-VNe" firstAttribute="width" secondItem="1NF-7P-HJ7" secondAttribute="width" id="8Bl-xB-QGB"/>
-                            <constraint firstAttribute="centerX" secondItem="5wj-Bc-zfl" secondAttribute="centerX" id="GX2-n4-pSp"/>
-                            <constraint firstAttribute="centerY" secondItem="5wj-Bc-zfl" secondAttribute="centerY" id="K94-r4-MCa"/>
-                            <constraint firstAttribute="centerX" secondItem="1NF-7P-HJ7" secondAttribute="centerX" id="LBu-6q-eQd"/>
-                            <constraint firstItem="5wj-Bc-zfl" firstAttribute="centerX" secondItem="1NF-7P-HJ7" secondAttribute="centerX" id="ZQ3-zM-bjM"/>
-                            <constraint firstItem="5wj-Bc-zfl" firstAttribute="top" secondItem="1NF-7P-HJ7" secondAttribute="bottom" id="dYh-iH-eOc"/>
-                            <constraint firstItem="kC3-K2-VNe" firstAttribute="centerY" secondItem="1NF-7P-HJ7" secondAttribute="centerY" id="fzp-u3-dkJ"/>
-                            <constraint firstItem="kC3-K2-VNe" firstAttribute="height" secondItem="1NF-7P-HJ7" secondAttribute="height" id="kdN-L6-18V"/>
-                            <constraint firstItem="kC3-K2-VNe" firstAttribute="centerX" secondItem="1NF-7P-HJ7" secondAttribute="centerX" id="srA-rN-fLl"/>
+                            <constraint firstItem="lMZ-hS-G6I" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="L3i-Z9-lq0"/>
+                            <constraint firstItem="5wj-Bc-zfl" firstAttribute="top" secondItem="lMZ-hS-G6I" secondAttribute="bottom" constant="8" id="PTc-XQ-rE0"/>
+                            <constraint firstAttribute="centerX" secondItem="5wj-Bc-zfl" secondAttribute="centerX" id="uXj-Cp-Q8p"/>
+                            <constraint firstAttribute="centerX" secondItem="lMZ-hS-G6I" secondAttribute="centerX" id="xRA-69-tDo"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="GX2-n4-pSp"/>
-                                <exclude reference="K94-r4-MCa"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="KAPI_AC.EXE" id="47C-gy-JJr">
+                    <navigationItem key="navigationItem" title="Heimdal" id="47C-gy-JJr">
                         <barButtonItem key="backBarButtonItem" title="Açma" id="Cm0-Z2-Rnp"/>
                     </navigationItem>
                     <connections>
                         <outlet property="connectButton" destination="5wj-Bc-zfl" id="bHs-IA-mib"/>
-                        <outlet property="overlayConnectButton" destination="kC3-K2-VNe" id="I9x-OP-MPY"/>
-                        <segue destination="bks-xQ-dNK" kind="show" identifier="connected" id="xX5-dY-c2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -100,49 +74,8 @@
             </objects>
             <point key="canvasLocation" x="-492" y="457"/>
         </scene>
-        <!--AÇABİLİRSİN-->
-        <scene sceneID="OMA-La-uCL">
-            <objects>
-                <viewController id="bks-xQ-dNK" customClass="ConnectedViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6De-rD-Kjc"/>
-                        <viewControllerLayoutGuide type="bottom" id="rvk-UZ-jUM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="roz-ZT-uro">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZy-RL-1U3">
-                                <rect key="frame" x="184" y="199" width="232" height="203"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="160"/>
-                                <state key="normal" title="AÇ">
-                                    <color key="titleColor" red="0.84313725490000002" green="0.0" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTappedOpenDoor:" destination="bks-xQ-dNK" eventType="touchUpInside" id="N2E-jj-MWE"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="HZy-RL-1U3" secondAttribute="centerY" id="OEG-Ud-aHc"/>
-                            <constraint firstAttribute="centerX" secondItem="HZy-RL-1U3" secondAttribute="centerX" id="bmM-VR-qyx"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="AÇABİLİRSİN" id="6Q8-Qs-mQI">
-                        <barButtonItem key="backBarButtonItem" title="Açma" id="AYn-me-MMs"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="openButton" destination="HZy-RL-1U3" id="cbD-tL-dcs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ggZ-nQ-HoU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="898" y="457"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="kapi.jpg" width="410" height="410"/>
+        <image name="Heimdal.jpg" width="454" height="692"/>
     </resources>
 </document>

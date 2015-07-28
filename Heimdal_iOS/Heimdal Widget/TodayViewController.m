@@ -38,8 +38,6 @@ static NSString *ble_device_name = @"BLE Mini";
 - (void)viewDidAppear:(BOOL)animated {
     self.preferredContentSize = CGSizeMake(0,100);
     
-    [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
-    
     [_bleController setDelegate:self];
     if([_bleController isConnected]) {
         CBPeripheral *peripheral = [_bleController activePeripheral];
@@ -105,13 +103,24 @@ static NSString *ble_device_name = @"BLE Mini";
         [_btnOpen setTitle:@"Opening..." forState:UIControlStateNormal];
         [_btnOpen setTitleColor:[UIColor colorWithRed:0.105 green:0.742 blue:0.150 alpha:1.000] forState:UIControlStateNormal];
     } completion: ^(BOOL finished) {
-        [_btnOpen setTitle:@"Opened" forState:UIControlStateNormal];
-        [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_bleController write:[self dataForHex:0x01]];
         [_bleController write:[self dataForHex:0x02]];
         [self disconnect];
+        [self performSelector:@selector(ConnectButtonSettings) withObject:nil afterDelay:1.0];
     }];
 }
+
+- (void)ConnectButtonSettings {
+    [_btnOpen setTitle:@"Opened!" forState:UIControlStateNormal];
+    [self performSelector:@selector(defaultConnectButtonSettings) withObject:nil afterDelay:1.0];
+}
+
+- (void)defaultConnectButtonSettings {
+    [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
+    [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+}
+
+
 #pragma mark - BLEDelegate Methods
 
 - (void)bleDidReceiveData:(unsigned char *)data length:(int)length {
@@ -133,9 +142,9 @@ static NSString *ble_device_name = @"BLE Mini";
 - (void)bleDidConnect {}
 
 - (void)disconnect {
-    NSLog(@"disconnecting..");
+    NSLog(@"Disconnecting..");
     [_bleController.CM cancelPeripheralConnection:[_bleController activePeripheral]];
-    NSLog(@"disconnected");
+    NSLog(@"Disconnected");
 }
 
 - (NSData*)dataForHex:(UInt8)hex {

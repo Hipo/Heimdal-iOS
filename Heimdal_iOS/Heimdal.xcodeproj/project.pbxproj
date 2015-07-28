@@ -12,15 +12,12 @@
 		77AE27331B4149020059C66F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AE27321B4149020059C66F /* MainInterface.storyboard */; };
 		77AE27361B4149020059C66F /* Heimdal Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 77AE27281B4149020059C66F /* Heimdal Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		77AE273B1B414DB00059C66F /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC85C01B1892A700E961A0 /* BLE.m */; };
-		E31AB9831B6793830025E073 /* kapi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E31AB9821B6793830025E073 /* kapi.jpg */; };
-		E31AB9851B679F5A0025E073 /* anahtarci.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E31AB9841B679F5A0025E073 /* anahtarci.jpg */; };
 		E332A9541B20BAB3006821BF /* Heimdal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E332A9531B20BAB3006821BF /* Heimdal.jpg */; };
 		E3AC85C21B1892A700E961A0 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC85C01B1892A700E961A0 /* BLE.m */; };
 		E3AC85C41B18934600E961A0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AC85C31B18934600E961A0 /* CoreBluetooth.framework */; };
 		E3CB65251B18D00400E5B451 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CB65191B18D00400E5B451 /* AppDelegate.m */; };
 		E3CB65261B18D00400E5B451 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3CB651A1B18D00400E5B451 /* LaunchScreen.xib */; };
 		E3CB65271B18D00400E5B451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CB651C1B18D00400E5B451 /* Main.storyboard */; };
-		E3CB65281B18D00400E5B451 /* ConnectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CB651F1B18D00400E5B451 /* ConnectedViewController.m */; };
 		E3CB65291B18D00400E5B451 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CB65201B18D00400E5B451 /* Images.xcassets */; };
 		E3CB652B1B18D00400E5B451 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CB65221B18D00400E5B451 /* main.m */; };
 		E3CB652C1B18D00400E5B451 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CB65241B18D00400E5B451 /* ConnectViewController.m */; };
@@ -57,8 +54,6 @@
 		77AE272F1B4149020059C66F /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		77AE27301B4149020059C66F /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		77AE27321B4149020059C66F /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		E31AB9821B6793830025E073 /* kapi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = kapi.jpg; path = ../kapi.jpg; sourceTree = "<group>"; };
-		E31AB9841B679F5A0025E073 /* anahtarci.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = anahtarci.jpg; sourceTree = "<group>"; };
 		E332A9531B20BAB3006821BF /* Heimdal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Heimdal.jpg; sourceTree = "<group>"; };
 		E3AC85BF1B1892A700E961A0 /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
 		E3AC85C01B1892A700E961A0 /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
@@ -69,8 +64,6 @@
 		E3CB65191B18D00400E5B451 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E3CB651B1B18D00400E5B451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E3CB651D1B18D00400E5B451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E3CB651E1B18D00400E5B451 /* ConnectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectedViewController.h; sourceTree = "<group>"; };
-		E3CB651F1B18D00400E5B451 /* ConnectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectedViewController.m; sourceTree = "<group>"; };
 		E3CB65201B18D00400E5B451 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E3CB65211B18D00400E5B451 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3CB65221B18D00400E5B451 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -104,8 +97,6 @@
 				E3CB651A1B18D00400E5B451 /* LaunchScreen.xib */,
 				E3CB65201B18D00400E5B451 /* Images.xcassets */,
 				E332A9531B20BAB3006821BF /* Heimdal.jpg */,
-				E31AB9841B679F5A0025E073 /* anahtarci.jpg */,
-				E31AB9821B6793830025E073 /* kapi.jpg */,
 				E3CB65211B18D00400E5B451 /* Info.plist */,
 				E3CB65221B18D00400E5B451 /* main.m */,
 			);
@@ -178,8 +169,6 @@
 				E3CB651C1B18D00400E5B451 /* Main.storyboard */,
 				E3CB65231B18D00400E5B451 /* ConnectViewController.h */,
 				E3CB65241B18D00400E5B451 /* ConnectViewController.m */,
-				E3CB651E1B18D00400E5B451 /* ConnectedViewController.h */,
-				E3CB651F1B18D00400E5B451 /* ConnectedViewController.m */,
 				773DDBDA1B67A32D00223C34 /* Supporting Files */,
 			);
 			path = Heimdal;
@@ -275,9 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E332A9541B20BAB3006821BF /* Heimdal.jpg in Resources */,
-				E31AB9831B6793830025E073 /* kapi.jpg in Resources */,
 				E3CB65261B18D00400E5B451 /* LaunchScreen.xib in Resources */,
-				E31AB9851B679F5A0025E073 /* anahtarci.jpg in Resources */,
 				E3CB65271B18D00400E5B451 /* Main.storyboard in Resources */,
 				E3CB65291B18D00400E5B451 /* Images.xcassets in Resources */,
 			);
@@ -300,7 +287,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3CB652C1B18D00400E5B451 /* ConnectViewController.m in Sources */,
-				E3CB65281B18D00400E5B451 /* ConnectedViewController.m in Sources */,
 				E3CB65251B18D00400E5B451 /* AppDelegate.m in Sources */,
 				E3CB652B1B18D00400E5B451 /* main.m in Sources */,
 				E3AC85C21B1892A700E961A0 /* BLE.m in Sources */,
@@ -457,7 +443,7 @@
 		E3BE243D1B1888ED00EAAFEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,7 +460,7 @@
 		E3BE243E1B1888ED00EAAFEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

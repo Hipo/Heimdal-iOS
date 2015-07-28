@@ -10,23 +10,23 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anahtarci.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="W6x-Vm-mi1">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heimdal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LgV-ly-Wlm">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.93727906270000005" green="0.93608983109999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="W6x-Vm-mi1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UhT-Pg-pFz"/>
-                <constraint firstItem="W6x-Vm-mi1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mAI-ad-y0P"/>
-                <constraint firstAttribute="bottom" secondItem="W6x-Vm-mi1" secondAttribute="bottom" id="qHN-jC-MXq"/>
-                <constraint firstAttribute="trailing" secondItem="W6x-Vm-mi1" secondAttribute="trailing" id="wc1-48-Net"/>
+                <constraint firstAttribute="trailing" secondItem="LgV-ly-Wlm" secondAttribute="trailing" id="KJ8-3b-1DR"/>
+                <constraint firstItem="LgV-ly-Wlm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NWu-HK-HGn"/>
+                <constraint firstItem="LgV-ly-Wlm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kVw-vA-Ijy"/>
+                <constraint firstAttribute="bottom" secondItem="LgV-ly-Wlm" secondAttribute="bottom" id="luV-LD-Itz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <point key="canvasLocation" x="409" y="447"/>
         </view>
     </objects>
     <resources>
-        <image name="anahtarci.jpg" width="445" height="445"/>
+        <image name="Heimdal.jpg" width="454" height="692"/>
     </resources>
 </document>
