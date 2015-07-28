@@ -31,28 +31,25 @@ static NSString *ble_device_name = @"BLE Mini";
     [_btnOpen setBackgroundColor:[UIColor colorWithRed:0.856 green:0.865 blue:0.924 alpha:1.000]];
     [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    
     _bleController = [[BLE alloc] init];
     [_bleController controlSetup];
 }
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     self.preferredContentSize = CGSizeMake(0,100);
     
-    [_bleController setDelegate:self];
+    [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
     
-    if([_bleController isConnected]){
-        
+    [_bleController setDelegate:self];
+    if([_bleController isConnected]) {
         CBPeripheral *peripheral = [_bleController activePeripheral];
-        
-        if(peripheral){
+        if(peripheral) {
             [_bleController.CM cancelPeripheralConnection:peripheral];
         }
     }
-    
 }
 
--(UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets{
+- (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets {
     return UIEdgeInsetsZero;
 }
 
@@ -85,40 +82,39 @@ static NSString *ble_device_name = @"BLE Mini";
                     break;
                 }
             }
-        } else {
-            _cBReady = false;
         }
-        [self openDoor];
+        
+        if (_cBReady == YES) {
+            [self openDoor];
+        } else {
+            [UIView animateWithDuration:1.5 animations:^{
+                [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
+                [_btnOpen setTitle:@"Cannot Connect, Try Again!" forState:UIControlStateNormal];
+                [_btnOpen setTitleColor:[UIColor colorWithRed:0.727 green:0.000 blue:0.000 alpha:1.000] forState:UIControlStateNormal];
+            } completion:^(BOOL finished) {
+                [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
+                [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            }];
+        }
     });
 }
 
--(void)openDoor {
-    if (_cBReady) {
-        [UIView animateWithDuration:3.0 animations:^{
-            [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
-            [_btnOpen setTitle:@"Opening..." forState:UIControlStateNormal];
-            [_btnOpen setTitleColor:[UIColor colorWithRed:0.105 green:0.742 blue:0.150 alpha:1.000] forState:UIControlStateNormal];
-        } completion:^(BOOL finished) {
-            [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
-            [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [_bleController write:[self dataForHex:0x01]];
-            [_bleController write:[self dataForHex:0x02]];
-            [self disconnect];
-        }];
-    } else {
-        [UIView animateWithDuration:1.5 animations:^{
-            [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
-            [_btnOpen setTitle:@"Try Again!" forState:UIControlStateNormal];
-            [_btnOpen setTitleColor:[UIColor colorWithRed:0.727 green:0.000 blue:0.000 alpha:1.000] forState:UIControlStateNormal];
-        } completion:^(BOOL finished) {
-            [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
-            [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        }];
-    }
+- (void)openDoor {
+    [UIView animateWithDuration:2.0 animations: ^{
+        [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
+        [_btnOpen setTitle:@"Opening..." forState:UIControlStateNormal];
+        [_btnOpen setTitleColor:[UIColor colorWithRed:0.105 green:0.742 blue:0.150 alpha:1.000] forState:UIControlStateNormal];
+    } completion: ^(BOOL finished) {
+        [_btnOpen setTitle:@"Opened" forState:UIControlStateNormal];
+        [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_bleController write:[self dataForHex:0x01]];
+        [_bleController write:[self dataForHex:0x02]];
+        [self disconnect];
+    }];
 }
 #pragma mark - BLEDelegate Methods
 
--(void)bleDidReceiveData:(unsigned char *)data length:(int)length{
+- (void)bleDidReceiveData:(unsigned char *)data length:(int)length {
     
     UInt8 flag = (UInt8)data;
     
@@ -132,18 +128,19 @@ static NSString *ble_device_name = @"BLE Mini";
     
 }
 
--(void)bleDidDisconnect {}
+- (void)bleDidDisconnect {}
 
--(void)bleDidConnect {}
+- (void)bleDidConnect {}
 
--(void)disconnect{
+- (void)disconnect {
     NSLog(@"disconnecting..");
     [_bleController.CM cancelPeripheralConnection:[_bleController activePeripheral]];
     NSLog(@"disconnected");
 }
 
--(NSData*)dataForHex:(UInt8)hex{
+- (NSData*)dataForHex:(UInt8)hex {
     //UInt8 j= 0x0f;
     return [[NSData alloc] initWithBytes:&hex length:sizeof(hex)];
 }
+
 @end
