@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e9D-kF-RuB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e9D-kF-RuB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--KAPI_AC.EXE-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ConnectViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,15 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heimdal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1NF-7P-HJ7">
-                                <rect key="frame" x="221" y="168" width="159" height="264"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kapi.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1NF-7P-HJ7">
+                                <rect key="frame" x="168" y="168" width="264" height="264"/>
+                                <color key="tintColor" red="0.84313725490196079" green="0.0" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="159" id="6Y9-tj-Li1"/>
+                                    <constraint firstAttribute="width" constant="264" id="6Y9-tj-Li1"/>
                                     <constraint firstAttribute="height" constant="264" id="Wcn-Ey-2z6"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wj-Bc-zfl">
-                                <rect key="frame" x="251" y="432" width="100" height="60"/>
+                                <rect key="frame" x="250" y="432" width="100" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="ikn-fl-zIk"/>
                                     <constraint firstAttribute="height" constant="60" id="tec-tS-zwx"/>
@@ -37,15 +38,31 @@
                                     <action selector="onTappedConnectButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4MZ-74-Rnn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC3-K2-VNe" userLabel="img_button">
+                                <rect key="frame" x="168" y="168" width="264" height="264"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="7"/>
+                                <state key="normal" title="bağla">
+                                    <color key="titleColor" red="0.84313725490000002" green="0.0" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTappedConnectButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5vI-do-P8h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="1NF-7P-HJ7" secondAttribute="centerY" id="24S-Tn-5UG"/>
+                            <constraint firstItem="kC3-K2-VNe" firstAttribute="width" secondItem="1NF-7P-HJ7" secondAttribute="width" id="8Bl-xB-QGB"/>
                             <constraint firstAttribute="centerX" secondItem="5wj-Bc-zfl" secondAttribute="centerX" id="GX2-n4-pSp"/>
                             <constraint firstAttribute="centerY" secondItem="5wj-Bc-zfl" secondAttribute="centerY" id="K94-r4-MCa"/>
                             <constraint firstAttribute="centerX" secondItem="1NF-7P-HJ7" secondAttribute="centerX" id="LBu-6q-eQd"/>
                             <constraint firstItem="5wj-Bc-zfl" firstAttribute="centerX" secondItem="1NF-7P-HJ7" secondAttribute="centerX" id="ZQ3-zM-bjM"/>
                             <constraint firstItem="5wj-Bc-zfl" firstAttribute="top" secondItem="1NF-7P-HJ7" secondAttribute="bottom" id="dYh-iH-eOc"/>
+                            <constraint firstItem="kC3-K2-VNe" firstAttribute="centerY" secondItem="1NF-7P-HJ7" secondAttribute="centerY" id="fzp-u3-dkJ"/>
+                            <constraint firstItem="kC3-K2-VNe" firstAttribute="height" secondItem="1NF-7P-HJ7" secondAttribute="height" id="kdN-L6-18V"/>
+                            <constraint firstItem="kC3-K2-VNe" firstAttribute="centerX" secondItem="1NF-7P-HJ7" secondAttribute="centerX" id="srA-rN-fLl"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -54,14 +71,18 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="47C-gy-JJr"/>
+                    <navigationItem key="navigationItem" title="KAPI_AC.EXE" id="47C-gy-JJr">
+                        <barButtonItem key="backBarButtonItem" title="Açma" id="Cm0-Z2-Rnp"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="connectButton" destination="5wj-Bc-zfl" id="bHs-IA-mib"/>
+                        <outlet property="overlayConnectButton" destination="kC3-K2-VNe" id="I9x-OP-MPY"/>
                         <segue destination="bks-xQ-dNK" kind="show" identifier="connected" id="xX5-dY-c2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="203" y="456"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dzx-vB-ttu">
@@ -79,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="-492" y="457"/>
         </scene>
-        <!--Connected View Controller-->
+        <!--AÇABİLİRSİN-->
         <scene sceneID="OMA-La-uCL">
             <objects>
                 <viewController id="bks-xQ-dNK" customClass="ConnectedViewController" sceneMemberID="viewController">
@@ -92,8 +113,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZy-RL-1U3">
-                                <rect key="frame" x="263" y="285" width="75" height="30"/>
-                                <state key="normal" title="Open Door">
+                                <rect key="frame" x="184" y="199" width="232" height="203"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="160"/>
+                                <state key="normal" title="AÇ">
+                                    <color key="titleColor" red="0.84313725490000002" green="0.0" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -107,14 +130,19 @@
                             <constraint firstAttribute="centerX" secondItem="HZy-RL-1U3" secondAttribute="centerX" id="bmM-VR-qyx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6Q8-Qs-mQI"/>
+                    <navigationItem key="navigationItem" title="AÇABİLİRSİN" id="6Q8-Qs-mQI">
+                        <barButtonItem key="backBarButtonItem" title="Açma" id="AYn-me-MMs"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="openButton" destination="HZy-RL-1U3" id="cbD-tL-dcs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggZ-nQ-HoU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="479"/>
+            <point key="canvasLocation" x="898" y="457"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Heimdal.jpg" width="454" height="692"/>
+        <image name="kapi.jpg" width="410" height="410"/>
     </resources>
 </document>

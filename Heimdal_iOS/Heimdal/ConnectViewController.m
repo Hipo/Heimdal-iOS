@@ -6,18 +6,19 @@
 //  Copyright (c) 2015 Eralp Karaduman. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ConnectViewController.h"
 #import "BLE.h"
 #import "ConnectedViewController.h"
 
 static NSString *ble_device_name = @"BLE Mini";
 
-@interface ViewController () <BLEDelegate>
+@interface ConnectViewController () <BLEDelegate>
 @property (nonatomic, strong) BLE *bleController;
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
+@property (weak, nonatomic) IBOutlet UIButton *overlayConnectButton;
 @end
 
-@implementation ViewController
+@implementation ConnectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,11 +45,15 @@ static NSString *ble_device_name = @"BLE Mini";
     }
     
     [_connectButton setEnabled:YES];
+    [_overlayConnectButton setEnabled:_connectButton.enabled];
 }
 
 - (IBAction)onTappedConnectButton:(id)sender {
 
+    //[self bleDidConnect]; return; /*uncomment for testing on simulator*/
+    
     [_connectButton setEnabled:NO];
+    [_overlayConnectButton setEnabled:_connectButton.enabled];
     
     [_bleController setPeripherals:nil];
     [_bleController findBLEPeripherals:10];
@@ -72,10 +77,11 @@ static NSString *ble_device_name = @"BLE Mini";
         }
         
         if(!found){
-            [[[UIAlertView alloc] initWithTitle:@"not found or someone else is connected" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"not found or someone else is connected (is your bluetooth on?)" message:nil delegate:nil cancelButtonTitle:@"OK :'(" otherButtonTitles:nil] show];
             
             
             [_connectButton setEnabled:YES];
+            [_overlayConnectButton setEnabled:_connectButton.enabled];
             
             
         }
@@ -91,6 +97,7 @@ static NSString *ble_device_name = @"BLE Mini";
 
 -(void)bleDidDisconnect{
     [_connectButton setEnabled:YES];
+    [_overlayConnectButton setEnabled:_connectButton.enabled];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
