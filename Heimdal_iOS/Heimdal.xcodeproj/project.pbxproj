@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770A63231B68D0BB001D7987 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A63221B68D0BB001D7987 /* InterfaceController.swift */; };
+		770A63251B68D0BB001D7987 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 770A63241B68D0BB001D7987 /* Images.xcassets */; };
+		770A63291B68D0BB001D7987 /* Heimdal WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 770A63281B68D0BB001D7987 /* Heimdal WatchKit App.app */; };
+		770A63311B68D0BB001D7987 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770A632F1B68D0BB001D7987 /* Interface.storyboard */; };
+		770A63331B68D0BB001D7987 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 770A63321B68D0BB001D7987 /* Images.xcassets */; };
+		770A63361B68D0BB001D7987 /* Heimdal WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 770A631E1B68D0BB001D7987 /* Heimdal WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		77AE272B1B4149020059C66F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AE272A1B4149020059C66F /* NotificationCenter.framework */; };
 		77AE27311B4149020059C66F /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AE27301B4149020059C66F /* TodayViewController.m */; };
 		77AE27331B4149020059C66F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AE27321B4149020059C66F /* MainInterface.storyboard */; };
@@ -24,6 +30,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		770A632A1B68D0BB001D7987 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3BE24111B1888EC00EAAFEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 770A63271B68D0BB001D7987;
+			remoteInfo = "Heimdal WatchKit App";
+		};
+		770A63341B68D0BB001D7987 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3BE24111B1888EC00EAAFEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 770A631D1B68D0BB001D7987;
+			remoteInfo = "Heimdal WatchKit Extension";
+		};
 		77AE27341B4149020059C66F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E3BE24111B1888EC00EAAFEA /* Project object */;
@@ -40,6 +60,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				770A63361B68D0BB001D7987 /* Heimdal WatchKit Extension.appex in Embed App Extensions */,
 				77AE27361B4149020059C66F /* Heimdal Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -48,6 +69,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		770A631E1B68D0BB001D7987 /* Heimdal WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Heimdal WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		770A63211B68D0BB001D7987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		770A63221B68D0BB001D7987 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		770A63241B68D0BB001D7987 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		770A63281B68D0BB001D7987 /* Heimdal WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Heimdal WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		770A632E1B68D0BB001D7987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		770A63301B68D0BB001D7987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		770A63321B68D0BB001D7987 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		770A633E1B68D2E6001D7987 /* Heimdal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Heimdal-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		77AE27281B4149020059C66F /* Heimdal Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Heimdal Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AE272A1B4149020059C66F /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		77AE272E1B4149020059C66F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +102,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		770A631B1B68D0BB001D7987 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77AE27251B4149020059C66F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,9 +128,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		770A631F1B68D0BB001D7987 /* Heimdal WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				770A63221B68D0BB001D7987 /* InterfaceController.swift */,
+				770A63241B68D0BB001D7987 /* Images.xcassets */,
+				770A63201B68D0BB001D7987 /* Supporting Files */,
+			);
+			path = "Heimdal WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		770A63201B68D0BB001D7987 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				770A63211B68D0BB001D7987 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		770A632C1B68D0BB001D7987 /* Heimdal WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				770A632F1B68D0BB001D7987 /* Interface.storyboard */,
+				770A63321B68D0BB001D7987 /* Images.xcassets */,
+				770A632D1B68D0BB001D7987 /* Supporting Files */,
+			);
+			path = "Heimdal WatchKit App";
+			sourceTree = "<group>";
+		};
+		770A632D1B68D0BB001D7987 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				770A632E1B68D0BB001D7987 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		773DDBDA1B67A32D00223C34 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				770A633E1B68D2E6001D7987 /* Heimdal-Bridging-Header.h */,
 				E3CB651A1B18D00400E5B451 /* LaunchScreen.xib */,
 				E3CB65201B18D00400E5B451 /* Images.xcassets */,
 				E332A9531B20BAB3006821BF /* Heimdal.jpg */,
@@ -147,6 +221,8 @@
 			children = (
 				E3CB65171B18D00400E5B451 /* Heimdal */,
 				77AE272C1B4149020059C66F /* Heimdal Widget */,
+				770A631F1B68D0BB001D7987 /* Heimdal WatchKit Extension */,
+				770A632C1B68D0BB001D7987 /* Heimdal WatchKit App */,
 				77AE27291B4149020059C66F /* Frameworks */,
 				E3BE241A1B1888EC00EAAFEA /* Products */,
 			);
@@ -157,6 +233,8 @@
 			children = (
 				E3BE24191B1888EC00EAAFEA /* Heimdal.app */,
 				77AE27281B4149020059C66F /* Heimdal Widget.appex */,
+				770A631E1B68D0BB001D7987 /* Heimdal WatchKit Extension.appex */,
+				770A63281B68D0BB001D7987 /* Heimdal WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +255,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		770A631D1B68D0BB001D7987 /* Heimdal WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 770A633C1B68D0BC001D7987 /* Build configuration list for PBXNativeTarget "Heimdal WatchKit Extension" */;
+			buildPhases = (
+				770A631A1B68D0BB001D7987 /* Sources */,
+				770A631B1B68D0BB001D7987 /* Frameworks */,
+				770A631C1B68D0BB001D7987 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				770A632B1B68D0BB001D7987 /* PBXTargetDependency */,
+			);
+			name = "Heimdal WatchKit Extension";
+			productName = "Heimdal WatchKit Extension";
+			productReference = 770A631E1B68D0BB001D7987 /* Heimdal WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		770A63271B68D0BB001D7987 /* Heimdal WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 770A633B1B68D0BC001D7987 /* Build configuration list for PBXNativeTarget "Heimdal WatchKit App" */;
+			buildPhases = (
+				770A63261B68D0BB001D7987 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Heimdal WatchKit App";
+			productName = "Heimdal WatchKit App";
+			productReference = 770A63281B68D0BB001D7987 /* Heimdal WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 		77AE27271B4149020059C66F /* Heimdal Widget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77AE27391B4149020059C66F /* Build configuration list for PBXNativeTarget "Heimdal Widget" */;
@@ -207,6 +318,7 @@
 			);
 			dependencies = (
 				77AE27351B4149020059C66F /* PBXTargetDependency */,
+				770A63351B68D0BB001D7987 /* PBXTargetDependency */,
 			);
 			name = Heimdal;
 			productName = Heimdal_iOS;
@@ -222,6 +334,12 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Eralp Karaduman";
 				TargetAttributes = {
+					770A631D1B68D0BB001D7987 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					770A63271B68D0BB001D7987 = {
+						CreatedOnToolsVersion = 6.4;
+					};
 					77AE27271B4149020059C66F = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 6NH7XJ2CAT;
@@ -246,11 +364,31 @@
 			targets = (
 				E3BE24181B1888EC00EAAFEA /* Heimdal */,
 				77AE27271B4149020059C66F /* Heimdal Widget */,
+				770A631D1B68D0BB001D7987 /* Heimdal WatchKit Extension */,
+				770A63271B68D0BB001D7987 /* Heimdal WatchKit App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		770A631C1B68D0BB001D7987 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				770A63251B68D0BB001D7987 /* Images.xcassets in Resources */,
+				770A63291B68D0BB001D7987 /* Heimdal WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		770A63261B68D0BB001D7987 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				770A63311B68D0BB001D7987 /* Interface.storyboard in Resources */,
+				770A63331B68D0BB001D7987 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77AE27261B4149020059C66F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,6 +411,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		770A631A1B68D0BB001D7987 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				770A63231B68D0BB001D7987 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77AE27241B4149020059C66F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,6 +442,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		770A632B1B68D0BB001D7987 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 770A63271B68D0BB001D7987 /* Heimdal WatchKit App */;
+			targetProxy = 770A632A1B68D0BB001D7987 /* PBXContainerItemProxy */;
+		};
+		770A63351B68D0BB001D7987 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 770A631D1B68D0BB001D7987 /* Heimdal WatchKit Extension */;
+			targetProxy = 770A63341B68D0BB001D7987 /* PBXContainerItemProxy */;
+		};
 		77AE27351B4149020059C66F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 77AE27271B4149020059C66F /* Heimdal Widget */;
@@ -304,6 +460,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		770A632F1B68D0BB001D7987 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				770A63301B68D0BB001D7987 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		E3CB651A1B18D00400E5B451 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -323,6 +487,65 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		770A63371B68D0BC001D7987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Heimdal WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		770A63381B68D0BC001D7987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Heimdal WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		770A63391B68D0BC001D7987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Heimdal_WatchKit_Extension;
+				INFOPLIST_FILE = "Heimdal WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		770A633A1B68D0BC001D7987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = Heimdal_WatchKit_Extension;
+				INFOPLIST_FILE = "Heimdal WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 		77AE27371B4149020059C66F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -378,6 +601,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -399,6 +623,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Heimdal-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -423,6 +648,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -436,6 +662,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Heimdal-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -477,6 +704,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		770A633B1B68D0BC001D7987 /* Build configuration list for PBXNativeTarget "Heimdal WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				770A63391B68D0BC001D7987 /* Debug */,
+				770A633A1B68D0BC001D7987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		770A633C1B68D0BC001D7987 /* Build configuration list for PBXNativeTarget "Heimdal WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				770A63371B68D0BC001D7987 /* Debug */,
+				770A63381B68D0BC001D7987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		77AE27391B4149020059C66F /* Build configuration list for PBXNativeTarget "Heimdal Widget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
