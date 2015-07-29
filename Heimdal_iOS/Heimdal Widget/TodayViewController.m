@@ -76,7 +76,7 @@ static NSString *ble_device_name = @"BLE Mini";
             for(CBPeripheral *peripheral in _bleController.peripherals){
                 if([peripheral.name isEqualToString:ble_device_name]){
                     _cBReady = true;
-                    [_bleController connectPeripheral:[_bleController.peripherals objectAtIndex:0]];
+                    [_bleController connectPeripheral:peripheral];
                     break;
                 }
             }
@@ -98,7 +98,7 @@ static NSString *ble_device_name = @"BLE Mini";
 }
 
 - (void)openDoor {
-    [UIView animateWithDuration:2.0 animations: ^{
+    [UIView animateWithDuration:1.0 animations: ^{
         [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
         [_btnOpen setTitle:@"Opening..." forState:UIControlStateNormal];
         [_btnOpen setTitleColor:[UIColor colorWithRed:0.105 green:0.742 blue:0.150 alpha:1.000] forState:UIControlStateNormal];
@@ -106,11 +106,11 @@ static NSString *ble_device_name = @"BLE Mini";
         [_bleController write:[self dataForHex:0x01]];
         [_bleController write:[self dataForHex:0x02]];
         [self disconnect];
-        [self performSelector:@selector(ConnectButtonSettings) withObject:nil afterDelay:1.0];
+        [self performSelector:@selector(connectButtonSettings) withObject:nil afterDelay:1.0];
     }];
 }
 
-- (void)ConnectButtonSettings {
+- (void)connectButtonSettings {
     [_btnOpen setTitle:@"Opened!" forState:UIControlStateNormal];
     [self performSelector:@selector(defaultConnectButtonSettings) withObject:nil afterDelay:1.0];
 }
@@ -120,6 +120,16 @@ static NSString *ble_device_name = @"BLE Mini";
     [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 }
 
+- (void)disconnect {
+    NSLog(@"Disconnecting from Today Widget");
+    [_bleController.CM cancelPeripheralConnection:[_bleController activePeripheral]];
+    NSLog(@"Disconnected from Today Widget");
+}
+
+- (NSData*)dataForHex:(UInt8)hex {
+    //UInt8 j= 0x0f;
+    return [[NSData alloc] initWithBytes:&hex length:sizeof(hex)];
+}
 
 #pragma mark - BLEDelegate Methods
 
@@ -141,15 +151,5 @@ static NSString *ble_device_name = @"BLE Mini";
 
 - (void)bleDidConnect {}
 
-- (void)disconnect {
-    NSLog(@"Disconnecting..");
-    [_bleController.CM cancelPeripheralConnection:[_bleController activePeripheral]];
-    NSLog(@"Disconnected");
-}
-
-- (NSData*)dataForHex:(UInt8)hex {
-    //UInt8 j= 0x0f;
-    return [[NSData alloc] initWithBytes:&hex length:sizeof(hex)];
-}
 
 @end

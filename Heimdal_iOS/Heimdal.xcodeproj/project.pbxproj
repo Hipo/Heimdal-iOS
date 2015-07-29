@@ -18,6 +18,7 @@
 		77AE27331B4149020059C66F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AE27321B4149020059C66F /* MainInterface.storyboard */; };
 		77AE27361B4149020059C66F /* Heimdal Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 77AE27281B4149020059C66F /* Heimdal Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		77AE273B1B414DB00059C66F /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC85C01B1892A700E961A0 /* BLE.m */; };
+		77D4E0F91B68E35200D20DBD /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC85C01B1892A700E961A0 /* BLE.m */; };
 		E332A9541B20BAB3006821BF /* Heimdal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E332A9531B20BAB3006821BF /* Heimdal.jpg */; };
 		E3AC85C21B1892A700E961A0 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC85C01B1892A700E961A0 /* BLE.m */; };
 		E3AC85C41B18934600E961A0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AC85C31B18934600E961A0 /* CoreBluetooth.framework */; };
@@ -415,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77D4E0F91B68E35200D20DBD /* BLE.m in Sources */,
 				770A63231B68D0BB001D7987 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -711,6 +713,7 @@
 				770A633A1B68D0BC001D7987 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		770A633C1B68D0BC001D7987 /* Build configuration list for PBXNativeTarget "Heimdal WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -719,6 +722,7 @@
 				770A63381B68D0BC001D7987 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		77AE27391B4149020059C66F /* Build configuration list for PBXNativeTarget "Heimdal Widget" */ = {
 			isa = XCConfigurationList;

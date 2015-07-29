@@ -80,7 +80,7 @@ static NSString *ble_device_name = @"BLE Mini";
 }
 
 - (void)openDoor {
-    [UIView animateWithDuration:2.0 animations: ^{
+    [UIView animateWithDuration:1.0 animations: ^{
         [_connectButton setFrame:CGRectMake(_connectButton.frame.origin.x, _connectButton.frame.origin.y, _connectButton.frame.size.width, 21)];
         [_connectButton setTitle:@"Opening..." forState:UIControlStateNormal];
         [_connectButton setTitleColor:[UIColor colorWithRed:0.105 green:0.742 blue:0.150 alpha:1.000] forState:UIControlStateNormal];
