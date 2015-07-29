@@ -10,8 +10,7 @@ import WatchKit
 import Foundation
 
 let ble_device_name: String = "BLE Mini"
-let popTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
-let popTime2: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC)))
+
 class InterfaceController: WKInterfaceController, BLEDelegate {
     
     // MARK: - ASD
@@ -34,18 +33,21 @@ class InterfaceController: WKInterfaceController, BLEDelegate {
                 self.bleController.CM!.cancelPeripheralConnection(peripheral)
             }
         }
+        self.stateLabel.setText("Not Connected")
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
+        self.openButton.setTitle("Open")
         self.bleController.delegate = self;
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        self.openButton.setTitle("Open")
     }
     
     
@@ -55,14 +57,14 @@ class InterfaceController: WKInterfaceController, BLEDelegate {
         
         self.cbReady = false;
         
+        let popTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             
             if let _ = self.bleController.peripherals   {
                 for peripheral in self.bleController.peripherals {
                     if peripheral.name == ble_device_name {
                         self.cbReady = true
-                        self.bleController.connectPeripheral(peripheral as! CBPeripheral)
-                        self.stateLabel.setText("Connected")
+                        self.bleController.connectPeripheral(self.bleController.peripherals.objectAtIndex(0) as! CBPeripheral)
                         break
                     }
                 }
@@ -71,8 +73,10 @@ class InterfaceController: WKInterfaceController, BLEDelegate {
             if self.cbReady == true {
                 self.openDoor()
             } else {
-                self.openButton.setTitle("Cannot Connect, Try Again!")
-                dispatch_after(popTime2, dispatch_get_main_queue(), { () -> Void in
+                UIView.animateWithDuration(1.5, animations: { () -> Void in
+                    self.openButton.setHeight(35.0)
+                    self.openButton.setTitle("Cannot Connect, Try Again!")
+                }, completion: { (finished) -> Void in
                     self.openButton.setTitle("Open");
                 })
             }
@@ -80,25 +84,24 @@ class InterfaceController: WKInterfaceController, BLEDelegate {
     }
     
     func openDoor() {
-        self.openButton.setTitle("Opening")
-        self.bleController.write(self.dataForHex(0x01))
-        self.bleController.write(self.dataForHex(0x02))
-        
-        dispatch_after(popTime2, dispatch_get_main_queue(), { () -> Void in
+        UIView.animateWithDuration(1.5, animations: { () -> Void in
+            self.openButton.setHeight(35.0)
+            self.openButton.setTitle("Opening")
+            self.bleController.write(self.dataForHex(0x01))
+            self.bleController.write(self.dataForHex(0x02))
             self.disconnect()
-            self.connectButtonSettings()
+            }, completion: { (finished) -> Void in
+                self.connectButtonSettings()
         })
     }
     
     func connectButtonSettings() {
-        self.openButton.setTitle("Opened!")
-        dispatch_after(popTime, dispatch_get_main_queue(), { () -> Void in
-            self.defaultConnectButtonSettings()
+        UIView.animateWithDuration(1.5, animations: { () -> Void in
+            self.openButton.setHeight(35.0)
+            self.openButton.setTitle("Opened!")
+            }, completion: { (finished) -> Void in
+                self.openButton.setTitle("Open")
         })
-    }
-    
-    func defaultConnectButtonSettings() {
-        self.openButton.setTitle("Open")
     }
     
     func disconnect() {
