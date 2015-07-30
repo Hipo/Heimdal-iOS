@@ -69,9 +69,7 @@ static NSString *ble_device_name = @"BLE Mini";
     [_btnOpen setEnabled:NO];
     _cBReady = false;
     
-    double delayInSeconds = 1.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void) {
         if ([_bleController.peripherals count] > 0) {
             for(CBPeripheral *peripheral in _bleController.peripherals){
                 if([peripheral.name isEqualToString:ble_device_name]){
@@ -107,7 +105,6 @@ static NSString *ble_device_name = @"BLE Mini";
         [_bleController write:[self dataForHex:0x01]];
         [_bleController write:[self dataForHex:0x02]];
         [self disconnect];
-        [self performSelector:@selector(connectButtonSettings) withObject:nil afterDelay:1.0];
     }];
 }
 
@@ -115,6 +112,12 @@ static NSString *ble_device_name = @"BLE Mini";
     [_btnOpen setTitle:@"Opened!" forState:UIControlStateNormal];
     [self performSelector:@selector(defaultConnectButtonSettings) withObject:nil afterDelay:1.0];
 }
+
+- (void)connectButtonWithErrorSettings {
+    [_btnOpen setTitle:@"Cannot Opened!" forState:UIControlStateNormal];
+    [self performSelector:@selector(defaultConnectButtonSettings) withObject:nil afterDelay:1.0];
+}
+
 
 - (void)defaultConnectButtonSettings {
     [_btnOpen setEnabled:YES];
@@ -142,9 +145,9 @@ static NSString *ble_device_name = @"BLE Mini";
     static UInt8 successFlag = 0x03;
     
     if(flag == successFlag){
-        NSLog(@"YES");
+        [self performSelector:@selector(connectButtonSettings) withObject:nil afterDelay:1.0];
     }else{
-        NSLog(@"NO");
+        [self performSelector:@selector(connectButtonWithErrorSettings) withObject:nil afterDelay:1.0];
     }
     
 }

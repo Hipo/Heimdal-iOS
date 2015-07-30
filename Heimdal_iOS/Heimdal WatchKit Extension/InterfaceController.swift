@@ -57,8 +57,7 @@ class InterfaceController: WKInterfaceController, BLEDelegate {
         
         self.cbReady = false;
         
-        let popTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
-        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             
             if let _ = self.bleController.peripherals   {
                 for peripheral in self.bleController.peripherals {
@@ -75,7 +74,7 @@ class InterfaceController: WKInterfaceController, BLEDelegate {
             } else {
                 UIView.animateWithDuration(1.5, animations: { () -> Void in
                     self.openButton.setHeight(35.0)
-                    self.openButton.setTitle("Cannot Connect, Try Again!")
+                    self.openButton.setTitle("Can't Connect!")
                 }, completion: { (finished) -> Void in
                     self.openButton.setTitle("Open");
                 })
