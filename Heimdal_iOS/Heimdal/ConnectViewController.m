@@ -45,9 +45,9 @@ static NSString *ble_device_name = @"BLE Mini";
 
 - (IBAction)onTappedConnectButton:(id)sender {
     //[self bleDidConnect]; return; /*uncomment for testing on simulator*/
-    
     [_bleController setPeripherals:nil];
     [_bleController findBLEPeripherals:10];
+    [_connectButton setEnabled:NO];
     
     _cBReady = false;
     
@@ -72,6 +72,7 @@ static NSString *ble_device_name = @"BLE Mini";
                 [_connectButton setTitle:@"Try Again!" forState:UIControlStateNormal];
                 [_connectButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
             } completion:^(BOOL finished) {
+                [_connectButton setEnabled:YES];
                 [_connectButton setTitle:@"Open" forState:UIControlStateNormal];
                 [_connectButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             }];
@@ -98,6 +99,7 @@ static NSString *ble_device_name = @"BLE Mini";
 }
 
 - (void)defaultConnectButtonSettings {
+    [_connectButton setEnabled:YES];
     [_connectButton setTitle:@"Open" forState:UIControlStateNormal];
     [_connectButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 }
