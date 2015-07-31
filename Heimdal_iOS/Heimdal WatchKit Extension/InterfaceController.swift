@@ -9,11 +9,11 @@
 import WatchKit
 import Foundation
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, ConnectionManagerDelegate {
     
-    // MARK: -
     @IBOutlet weak var openButton: WKInterfaceButton!
     @IBOutlet weak var stateLabel: WKInterfaceLabel!
+    var connectionManager: ConnectionManager!
 
     
     // MARK: - View Methods
@@ -21,7 +21,11 @@ class InterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
+        self.openButton.setTitle("Open")
         self.stateLabel.setText("Not Connected")
+        
+        connectionManager = ConnectionManager()
+        connectionManager.delegate = self
     }
 
     override func willActivate() {
@@ -29,40 +33,58 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         
         self.openButton.setTitle("Open")
+        self.stateLabel.setText("Not Connected")
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
         self.openButton.setTitle("Open")
+        self.stateLabel.setText("Not Connected")
     }
     
     
     @IBAction func didTapOpenButton () {
+        openButton.setEnabled(false)
+        connectionManager.connectDoor()
+    }
+    
+    // MARK: - ConnectionManager Delegate Methods
+    func connectionManagerDidConnect(connectionManager: ConnectionManager!) {
+        self.stateLabel.setText("Connected")
+        connectionManager.openDoor()
+    }
+    
+    func connectionManager(connectionManager: ConnectionManager!, didFailConnectWithError error: NSError!) {
+        self.openButton.setTitle("Can't Connect!")
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Float(NSEC_PER_SEC))), dispatch_get_main_queue  ()) {
-            
-            WKInterfaceController.openParentApplication(["openTheDoor": "appleWatch"]) { userInfo, error in
-                
-                if  (error == nil) {
-                    if let success = (userInfo as? [String: AnyObject])?["success"] as? NSNumber {
-                        if success.boolValue == true {
-                            println("Read data from Wormhole and update interface!")
-                        }
-                    }
-                } else {
-                    
-                }
-            }
-            return
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Float(NSEC_PER_SEC))), dispatch_get_main_queue  ()) {
+            self.stateLabel.setText("Not Connected")
+            self.openButton.setTitle("Open");
+            self.openButton.setEnabled(true)
+        
         }
-
-//        UIView.animateWithDuration(1.5, animations: { () -> Void in
-//            self.openButton.setHeight(35.0)
-//            self.openButton.setTitle("Can't Connect!")
-//            }, completion: { (finished) -> Void in
-//                self.openButton.setTitle("Open");
-//        })
-
+    }
+    
+    func connectionManagerDidOpenDoor(connectionManager: ConnectionManager!) {
+        self.openButton.setTitle("Openining")
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Float(NSEC_PER_SEC))), dispatch_get_main_queue  ()) {
+            self.stateLabel.setText("Not Connected")
+            self.openButton.setTitle("Open");
+            self.openButton.setEnabled(true)
+            
+        }
+    }
+    
+    func connectionManager(connectionManager: ConnectionManager!, didFailOpenDoorWithError error: NSError!) {
+        self.openButton.setTitle("Can't Open!")
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Float(NSEC_PER_SEC))), dispatch_get_main_queue  ()) {
+            self.stateLabel.setText("Not Connected")
+            self.openButton.setTitle("Open");
+            self.openButton.setEnabled(true)
+            
+        }
     }
 }

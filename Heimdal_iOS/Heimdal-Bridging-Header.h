@@ -6,12 +6,6 @@
 //  Copyright (c) 2015 Eralp Karaduman. All rights reserved.
 //
 
-//#ifndef Heimdal_Heimdal_Bridging_Header_h
-//#define Heimdal_Heimdal_Bridging_Header_h
-//
-//
-//#endif
-
 #import "BLE.h"
-
+#import "ConnectionManager.h"
 

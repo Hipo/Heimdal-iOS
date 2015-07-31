@@ -522,7 +522,8 @@
 				INFOPLIST_FILE = "Heimdal WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				"PROVISIONING_PROFILE[sdk=*]" = "dc14f25a-6bb4-4510-a577-eac475f05e9f";
+				PROVISIONING_PROFILE = "694c8506-9df3-4319-b710-8e6deba7f711";
+				"PROVISIONING_PROFILE[sdk=*]" = "694c8506-9df3-4319-b710-8e6deba7f711";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -574,7 +575,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "648deedc-5845-4921-910f-d9a31337050e";
+				"PROVISIONING_PROFILE[sdk=*]" = "50d0983f-db96-406f-b5e1-e85844b05e9d";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -716,8 +717,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Heimdal;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "0697793b-0de1-47e6-bdfb-37bf5f1c7607";
+				PROVISIONING_PROFILE = "dff3a760-9f49-4d08-b51c-adeaeb6c7d0c";
+				"PROVISIONING_PROFILE[sdk=*]" = "dff3a760-9f49-4d08-b51c-adeaeb6c7d0c";
 			};
 			name = Debug;
 		};
@@ -735,8 +736,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Heimdal;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "9b990330-74b0-41db-b431-d5c8304aa276";
+				PROVISIONING_PROFILE = "dff3a760-9f49-4d08-b51c-adeaeb6c7d0c";
+				"PROVISIONING_PROFILE[sdk=*]" = "a46278a1-db9b-4c01-a752-d818bd965fe2";
 			};
 			name = Release;
 		};

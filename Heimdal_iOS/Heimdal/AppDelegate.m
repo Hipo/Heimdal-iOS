@@ -9,11 +9,12 @@
 #import "AppDelegate.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
+#import "ConnectionManager.h"
 
 #define kIdentifier @"HipoLabs"
 #define kUUID [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"]
 
-@interface AppDelegate () <CLLocationManagerDelegate>
+@interface AppDelegate () <CLLocationManagerDelegate, ConnectionManagerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
@@ -22,7 +23,7 @@
 
 @implementation AppDelegate
 
-
+#pragma mark - AppDelegate Methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchxOptions {
     // Override point for customization after application launch.
     
@@ -63,12 +64,35 @@
 }
 
 -(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply {
-    if (userInfo[@"openTheDoor"] != nil) {
+    if (userInfo[@"Door"] != nil) {
+        ConnectionManager *connectionManager = [[ConnectionManager alloc] init];
+        connectionManager.delegate = self;
+        
+        [connectionManager connectDoor];
+        
         
         reply(@{@"connection":@(YES)});
     } else {
         reply(@{@"connection":@(NO)});
     }
+}
+
+#pragma mark - ConnectionManager Delegate Methods
+- (void)connectionManagerDidConnect:(ConnectionManager *)connectionManager {
+    NSLog(@"connectionManagerDidConnect");
+    [connectionManager openDoor];
+}
+
+- (void)connectionManager:(ConnectionManager *)connectionManager didFailConnectWithError:(NSError *)error {
+    NSLog(@"didFailConnectWithError");
+}
+
+- (void)connectionManagerDidOpenDoor:(ConnectionManager *)connectionManager {
+    NSLog(@"connectionManagerDidOpenDoor");
+}
+
+- (void)connectionManager:(ConnectionManager *)connectionManager didFailOpenDoorWithError:(NSError *)error {
+    NSLog(@"didFailOpenDoorWithError");
 }
 
 #pragma mark - CLLocationManager Delegate Methods
@@ -116,7 +140,6 @@
 //        }
 //    }
 }
-
 
 -(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
     //NSLog(@"Monitoring is started with region: %@", region);
