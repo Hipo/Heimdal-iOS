@@ -18,6 +18,9 @@
 		77AE27331B4149020059C66F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AE27321B4149020059C66F /* MainInterface.storyboard */; };
 		77AE27361B4149020059C66F /* Heimdal Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 77AE27281B4149020059C66F /* Heimdal Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		77AE273B1B414DB00059C66F /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC85C01B1892A700E961A0 /* BLE.m */; };
+		77C47D331B6B7B8000488FA3 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C47D321B6B7B8000488FA3 /* ConnectionManager.m */; };
+		77C47D341B6B7B8000488FA3 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C47D321B6B7B8000488FA3 /* ConnectionManager.m */; };
+		77C47D351B6B7B8000488FA3 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C47D321B6B7B8000488FA3 /* ConnectionManager.m */; };
 		77D4E0F91B68E35200D20DBD /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC85C01B1892A700E961A0 /* BLE.m */; };
 		E332A9541B20BAB3006821BF /* Heimdal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E332A9531B20BAB3006821BF /* Heimdal.jpg */; };
 		E3AC85C21B1892A700E961A0 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC85C01B1892A700E961A0 /* BLE.m */; };
@@ -85,6 +88,8 @@
 		77AE272F1B4149020059C66F /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		77AE27301B4149020059C66F /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		77AE27321B4149020059C66F /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		77C47D311B6B7B8000488FA3 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
+		77C47D321B6B7B8000488FA3 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 		E332A9531B20BAB3006821BF /* Heimdal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Heimdal.jpg; sourceTree = "<group>"; };
 		E3AC85BF1B1892A700E961A0 /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
 		E3AC85C01B1892A700E961A0 /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
@@ -207,6 +212,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		77C47D2B1B6B661200488FA3 /* ConnectionManager */ = {
+			isa = PBXGroup;
+			children = (
+				77C47D311B6B7B8000488FA3 /* ConnectionManager.h */,
+				77C47D321B6B7B8000488FA3 /* ConnectionManager.m */,
+			);
+			name = ConnectionManager;
+			sourceTree = "<group>";
+		};
 		E3AC85BE1B1892A700E961A0 /* BLE */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +234,7 @@
 		E3BE24101B1888EC00EAAFEA = {
 			isa = PBXGroup;
 			children = (
+				77C47D2B1B6B661200488FA3 /* ConnectionManager */,
 				E3CB65171B18D00400E5B451 /* Heimdal */,
 				77AE272C1B4149020059C66F /* Heimdal Widget */,
 				770A631F1B68D0BB001D7987 /* Heimdal WatchKit Extension */,
@@ -420,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77D4E0F91B68E35200D20DBD /* BLE.m in Sources */,
+				77C47D351B6B7B8000488FA3 /* ConnectionManager.m in Sources */,
 				770A63231B68D0BB001D7987 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77AE27311B4149020059C66F /* TodayViewController.m in Sources */,
+				77C47D341B6B7B8000488FA3 /* ConnectionManager.m in Sources */,
 				77AE273B1B414DB00059C66F /* BLE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +457,7 @@
 				E3CB652C1B18D00400E5B451 /* ConnectViewController.m in Sources */,
 				E3CB65251B18D00400E5B451 /* AppDelegate.m in Sources */,
 				E3CB652B1B18D00400E5B451 /* main.m in Sources */,
+				77C47D331B6B7B8000488FA3 /* ConnectionManager.m in Sources */,
 				E3AC85C21B1892A700E961A0 /* BLE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,7 +522,7 @@
 				INFOPLIST_FILE = "Heimdal WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				"PROVISIONING_PROFILE[sdk=*]" = "6f9d459f-cdda-4d86-b11e-fe85752316fe";
+				"PROVISIONING_PROFILE[sdk=*]" = "dc14f25a-6bb4-4510-a577-eac475f05e9f";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -518,7 +536,7 @@
 				INFOPLIST_FILE = "Heimdal WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				"PROVISIONING_PROFILE[sdk=*]" = "ad270bc6-88f8-4d4c-b58b-5ec2cd50af22";
+				"PROVISIONING_PROFILE[sdk=*]" = "162f58b1-a7aa-49c2-9901-807deba93d62";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -537,7 +555,8 @@
 				INFOPLIST_FILE = "Heimdal WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=*]" = "8fbcbbda-5327-4386-b4bc-9d44d156625d";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "bf0be191-9dd2-4606-9d26-c4523003067c";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -549,12 +568,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hippo Foundry Inc. (W9875NV3WF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				IBSC_MODULE = Heimdal_WatchKit_Extension;
 				INFOPLIST_FILE = "Heimdal WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=*]" = "76d71fa8-7bd9-4fcf-98b3-9fe9e3e0dc92";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "648deedc-5845-4921-910f-d9a31337050e";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -575,7 +595,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "0ff6aa42-e0e0-4d13-a11b-d8173bacc861";
+				"PROVISIONING_PROFILE[sdk=*]" = "ccc914fc-a63e-4591-b186-c7982a84caba";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -590,7 +610,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "0dd07f7f-e26d-4440-8078-0cc7abe55579";
+				"PROVISIONING_PROFILE[sdk=*]" = "1a5151c6-99e9-45b3-afd5-2430d5920f9b";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -686,6 +706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Taylan Pince (3NP8F5275C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -695,7 +716,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Heimdal;
-				"PROVISIONING_PROFILE[sdk=*]" = "6f030e6d-1935-467d-9044-ada2ae9f2b83";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "0697793b-0de1-47e6-bdfb-37bf5f1c7607";
 			};
 			name = Debug;
 		};
@@ -703,7 +725,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hippo Foundry Inc. (W9875NV3WF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -712,7 +735,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Heimdal;
-				"PROVISIONING_PROFILE[sdk=*]" = "18c5b9d8-fae9-4b82-b699-d05c106ac3ae";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "9b990330-74b0-41db-b431-d5c8304aa276";
 			};
 			name = Release;
 		};

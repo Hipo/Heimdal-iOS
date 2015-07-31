@@ -9,15 +9,12 @@
 #import "TodayViewController.h"
 #import <NotificationCenter/NotificationCenter.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "BLE.h"
+#import "ConnectionManager.h"
 
-static NSString *ble_device_name = @"BLE Mini";
-
-@interface TodayViewController () <NCWidgetProviding, BLEDelegate>
+@interface TodayViewController () <NCWidgetProviding, ConnectionManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnOpen;
-@property (nonatomic, strong) BLE *bleController;
-@property (nonatomic, assign) bool cBReady;
+@property (nonatomic, strong) ConnectionManager *connectionManager;
 
 @end
 
@@ -31,20 +28,13 @@ static NSString *ble_device_name = @"BLE Mini";
     [_btnOpen setBackgroundColor:[UIColor colorWithRed:0.856 green:0.865 blue:0.924 alpha:1.000]];
     [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    _bleController = [[BLE alloc] init];
-    [_bleController controlSetup];
+    
+    _connectionManager = [[ConnectionManager alloc] init];
+    _connectionManager.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     self.preferredContentSize = CGSizeMake(0,100);
-    
-    [_bleController setDelegate:self];
-    if([_bleController isConnected]) {
-        CBPeripheral *peripheral = [_bleController activePeripheral];
-        if(peripheral) {
-            [_bleController.CM cancelPeripheralConnection:peripheral];
-        }
-    }
 }
 
 - (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets {
@@ -64,97 +54,50 @@ static NSString *ble_device_name = @"BLE Mini";
 
 #pragma mark - Button Action
 - (IBAction)didTapConnect:(UIButton *)sender {
-    [_bleController setPeripherals:nil];
-    [_bleController findBLEPeripherals:10];
     [_btnOpen setEnabled:NO];
-    _cBReady = false;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^(void) {
-        if ([_bleController.peripherals count] > 0) {
-            for(CBPeripheral *peripheral in _bleController.peripherals){
-                if([peripheral.name isEqualToString:ble_device_name]){
-                    _cBReady = true;
-                    [_bleController connectPeripheral:peripheral];
-                    break;
-                }
-            }
-        }
-        
-        if (_cBReady == YES) {
-            [self openDoor];
-        } else {
-            [UIView animateWithDuration:1.5 animations:^{
-                [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
-                [_btnOpen setTitle:@"Cannot Connect, Try Again!" forState:UIControlStateNormal];
-                [_btnOpen setTitleColor:[UIColor colorWithRed:0.727 green:0.000 blue:0.000 alpha:1.000] forState:UIControlStateNormal];
-            } completion:^(BOOL finished) {
-                [_btnOpen setEnabled:YES];
-                [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
-                [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            }];
-        }
-    });
+    [_connectionManager connectDoor];
 }
 
-- (void)openDoor {
-    [UIView animateWithDuration:1.0 animations: ^{
+#pragma mark - ConnectionManager Delegate Methods
+
+- (void)connectionManagerDidConnect:(ConnectionManager *)connectionManager {
+    [_connectionManager openDoor];
+}
+
+- (void)connectionManager:(ConnectionManager *)connectionManager didFailConnectWithError:(NSError *)error {
+    [UIView animateWithDuration:1.5 animations:^{
+        [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
+        [_btnOpen setTitle:@"Cannot Connect, Try Again!" forState:UIControlStateNormal];
+        [_btnOpen setTitleColor:[UIColor colorWithRed:0.727 green:0.000 blue:0.000 alpha:1.000] forState:UIControlStateNormal];
+    } completion:^(BOOL finished) {
+        [_btnOpen setEnabled:YES];
+        [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
+        [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }];
+}
+
+- (void)connectionManagerDidOpenDoor:(ConnectionManager *)connectionManager {
+    [UIView animateWithDuration:2.0 animations: ^{
         [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
         [_btnOpen setTitle:@"Opening..." forState:UIControlStateNormal];
         [_btnOpen setTitleColor:[UIColor colorWithRed:0.105 green:0.742 blue:0.150 alpha:1.000] forState:UIControlStateNormal];
     } completion: ^(BOOL finished) {
-        [_bleController write:[self dataForHex:0x01]];
-        [_bleController write:[self dataForHex:0x02]];
-        [self disconnect];
+        [_btnOpen setEnabled:YES];
+        [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
+        [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }];
 }
 
-- (void)connectButtonSettings {
-    [_btnOpen setTitle:@"Opened!" forState:UIControlStateNormal];
-    [self performSelector:@selector(defaultConnectButtonSettings) withObject:nil afterDelay:1.0];
+- (void)connectionManager:(ConnectionManager *)connectionManager didFailOpenDoorWithError:(NSError *)error {
+    [UIView animateWithDuration:1.0 animations: ^{
+        [_btnOpen setFrame:CGRectMake(_btnOpen.frame.origin.x, _btnOpen.frame.origin.y, _btnOpen.frame.size.width, 30)];
+        [_btnOpen setTitle:@"Cannot Opened!" forState:UIControlStateNormal];
+        [_btnOpen setTitleColor:[UIColor colorWithRed:0.105 green:0.742 blue:0.150 alpha:1.000] forState:UIControlStateNormal];
+    } completion: ^(BOOL finished) {
+        [_btnOpen setEnabled:YES];
+        [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
+        [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }];
 }
-
-- (void)connectButtonWithErrorSettings {
-    [_btnOpen setTitle:@"Cannot Opened!" forState:UIControlStateNormal];
-    [self performSelector:@selector(defaultConnectButtonSettings) withObject:nil afterDelay:1.0];
-}
-
-
-- (void)defaultConnectButtonSettings {
-    [_btnOpen setEnabled:YES];
-    [_btnOpen setTitle:@"Open" forState:UIControlStateNormal];
-    [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-}
-
-- (void)disconnect {
-    NSLog(@"Disconnecting from Today Widget");
-    [_bleController.CM cancelPeripheralConnection:[_bleController activePeripheral]];
-    NSLog(@"Disconnected from Today Widget");
-}
-
-- (NSData*)dataForHex:(UInt8)hex {
-    //UInt8 j= 0x0f;
-    return [[NSData alloc] initWithBytes:&hex length:sizeof(hex)];
-}
-
-#pragma mark - BLEDelegate Methods
-
-- (void)bleDidReceiveData:(unsigned char *)data length:(int)length {
-    
-    UInt8 flag = (UInt8)data;
-    
-    static UInt8 successFlag = 0x03;
-    
-    if(flag == successFlag){
-        [self performSelector:@selector(connectButtonSettings) withObject:nil afterDelay:1.0];
-    }else{
-        [self performSelector:@selector(connectButtonWithErrorSettings) withObject:nil afterDelay:1.0];
-    }
-    
-}
-
-- (void)bleDidDisconnect {}
-
-- (void)bleDidConnect {}
-
 
 @end

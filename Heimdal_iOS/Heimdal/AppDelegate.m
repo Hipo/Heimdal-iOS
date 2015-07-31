@@ -62,6 +62,15 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply {
+    if (userInfo[@"openTheDoor"] != nil) {
+        
+        reply(@{@"connection":@(YES)});
+    } else {
+        reply(@{@"connection":@(NO)});
+    }
+}
+
 #pragma mark - CLLocationManager Delegate Methods
 -(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
     //NSLog(@"State: %ld", (long)state);

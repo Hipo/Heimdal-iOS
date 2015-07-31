@@ -13,7 +13,7 @@ let ble_device_name: String = "BLE Mini"
 
 class InterfaceController: WKInterfaceController, BLEDelegate {
     
-    // MARK: - ASD
+    // MARK: -
     @IBOutlet weak var openButton: WKInterfaceButton!
     @IBOutlet weak var stateLabel: WKInterfaceLabel!
     var bleController: BLE!
@@ -52,43 +52,80 @@ class InterfaceController: WKInterfaceController, BLEDelegate {
     
     
     @IBAction func didTapOpenButton () {
-        self.bleController.peripherals = nil
-        self.bleController.findBLEPeripherals(10)
+//        self.bleController.peripherals = nil
+//        self.bleController.findBLEPeripherals(10)
+//        
+//        self.cbReady = false;
         
-        self.cbReady = false;
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Float(NSEC_PER_SEC))), dispatch_get_main_queue  ()) {
             
-            if let _ = self.bleController.peripherals   {
-                for peripheral in self.bleController.peripherals {
-                    if peripheral.name == ble_device_name {
-                        self.cbReady = true
-                        self.bleController.connectPeripheral(self.bleController.peripherals.objectAtIndex(0) as! CBPeripheral)
-                        break
+            WKInterfaceController.openParentApplication(["openTheDoor": "appleWatch"]) { userInfo, error in
+                
+                if  (error == nil) {
+                    if let success = (userInfo as? [String: AnyObject])?["success"] as? NSNumber {
+                        if success.boolValue == true {
+                            println("Read data from Wormhole and update interface!")
+                        }
                     }
+                } else {
+                    
                 }
             }
-            
-            if self.cbReady == true {
-                self.openDoor()
-            } else {
-                UIView.animateWithDuration(1.5, animations: { () -> Void in
-                    self.openButton.setHeight(35.0)
-                    self.openButton.setTitle("Can't Connect!")
-                }, completion: { (finished) -> Void in
-                    self.openButton.setTitle("Open");
-                })
-            }
+            return
         }
+        
+        
+        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+//            
+//            if let _ = self.bleController.peripherals   {
+//                for peripheral in self.bleController.peripherals {
+//                    if peripheral.name == ble_device_name {
+//                        self.cbReady = true
+//                        self.bleController.connectPeripheral(self.bleController.peripherals.objectAtIndex(0) as! CBPeripheral)
+//                        break
+//                    }
+//                }
+//            }
+//            
+//            if self.cbReady == true {
+//                self.openDoor()
+//            } else {
+//                UIView.animateWithDuration(1.5, animations: { () -> Void in
+//                    self.openButton.setHeight(35.0)
+//                    self.openButton.setTitle("Can't Connect!")
+//                }, completion: { (finished) -> Void in
+//                    self.openButton.setTitle("Open");
+//                })
+//            }
+//        }
     }
     
     func openDoor() {
         UIView.animateWithDuration(1.5, animations: { () -> Void in
             self.openButton.setHeight(35.0)
             self.openButton.setTitle("Opening")
-            self.bleController.write(self.dataForHex(0x01))
-            self.bleController.write(self.dataForHex(0x02))
-            self.disconnect()
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Float(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                
+                WKInterfaceController.openParentApplication(["openTheDoor": "appleWatch"]) { userInfo, error in
+                    
+                    if  (error == nil) {
+                        if let success = (userInfo as? [String: AnyObject])?["success"] as? NSNumber {
+                            if success.boolValue == true {
+                                println("Read data from Wormhole and update interface!")
+                            }
+                        }
+                    } else {
+                        
+                    }
+                }
+                
+                return
+            }
+//            self.bleController.write(self.dataForHex(0x01))
+//            self.bleController.write(self.dataForHex(0x02))
+//            self.disconnect()
             }, completion: { (finished) -> Void in
                 self.connectButtonSettings()
         })
