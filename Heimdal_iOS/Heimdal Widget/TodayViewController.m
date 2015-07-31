@@ -28,7 +28,6 @@
     [_btnOpen setBackgroundColor:[UIColor colorWithRed:0.856 green:0.865 blue:0.924 alpha:1.000]];
     [_btnOpen setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    
     _connectionManager = [[ConnectionManager alloc] init];
     _connectionManager.delegate = self;
 }

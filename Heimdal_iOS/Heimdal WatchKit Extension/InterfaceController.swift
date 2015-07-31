@@ -15,13 +15,11 @@ class InterfaceController: WKInterfaceController, ConnectionManagerDelegate {
     @IBOutlet weak var stateLabel: WKInterfaceLabel!
     var connectionManager: ConnectionManager!
 
-    
     // MARK: - View Methods
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
-        self.openButton.setTitle("Open")
         self.stateLabel.setText("Not Connected")
         
         connectionManager = ConnectionManager()
@@ -31,21 +29,19 @@ class InterfaceController: WKInterfaceController, ConnectionManagerDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
-        self.openButton.setTitle("Open")
+
         self.stateLabel.setText("Not Connected")
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-        self.openButton.setTitle("Open")
-        self.stateLabel.setText("Not Connected")
     }
     
     
     @IBAction func didTapOpenButton () {
         openButton.setEnabled(false)
+        self.stateLabel.setText("Connecting")
         connectionManager.connectDoor()
     }
     
@@ -56,24 +52,19 @@ class InterfaceController: WKInterfaceController, ConnectionManagerDelegate {
     }
     
     func connectionManager(connectionManager: ConnectionManager!, didFailConnectWithError error: NSError!) {
-        self.openButton.setTitle("Can't Connect!")
-        
+        self.stateLabel.setText("Can't Connect!")
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Float(NSEC_PER_SEC))), dispatch_get_main_queue  ()) {
             self.stateLabel.setText("Not Connected")
-            self.openButton.setTitle("Open");
             self.openButton.setEnabled(true)
-        
         }
     }
     
     func connectionManagerDidOpenDoor(connectionManager: ConnectionManager!) {
-        self.openButton.setTitle("Openining")
+        self.openButton.setTitle("Opening")
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Float(NSEC_PER_SEC))), dispatch_get_main_queue  ()) {
             self.stateLabel.setText("Not Connected")
-            self.openButton.setTitle("Open");
             self.openButton.setEnabled(true)
-            
         }
     }
     
@@ -84,7 +75,6 @@ class InterfaceController: WKInterfaceController, ConnectionManagerDelegate {
             self.stateLabel.setText("Not Connected")
             self.openButton.setTitle("Open");
             self.openButton.setEnabled(true)
-            
         }
     }
 }

@@ -10,6 +10,5 @@
 
 @interface ConnectViewController : UIViewController
 
-
 @end
 
